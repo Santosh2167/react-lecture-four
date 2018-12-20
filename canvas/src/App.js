@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ColourSelector from "./ColourSelector";
+import Canvas from "./canvas"
 
 class App extends Component {
     render() {
@@ -8,14 +9,7 @@ class App extends Component {
 
             <div>
                 <h1>Welcome To Your Drawing Pad</h1>
-                <ColourSelector
-                  hex="#f4424b"/>
-
-                <ColourSelector
-                  />
-
-                <ColourSelector
-                  hex="#f4424b"/>
+                <Canvas />
 
             </div>
         ) 

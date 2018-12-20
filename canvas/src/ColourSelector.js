@@ -2,13 +2,20 @@ import React, {Component} from "react";
 
 class ColourSelector extends Component {
     state = {hex: this.props.hex}
-    
-    // onInputChange(event) {
-    //     console.log(event.target.value);
 
+    // constructor(props) {
+    //     super(props);
+    //     this.onInputChange = this.onInputChange.bind(this);
     // }
+    
+    onInputChange = (event) => {
+        //this.setState({hex: event.target.value})
+        const {onColourSelectorChange} = this.props;
+        onColourSelectorChange(event.target.value);
+    }
 
     componentDidUpdate(){
+        //event => this.setState({hex: event.target.value})
         console.log(this.state);
     }
 
@@ -18,10 +25,9 @@ class ColourSelector extends Component {
             <div>
                 <input 
                     type="color" 
-                    //defaultValue = "0000ff"
                     value={hex} 
                     // onChange={this.onInputChange}
-                    onChange={event => this.setState({hex: event.target.value})}
+                    onChange={this.onInputChange}
                 /> 
             </div>
         );
