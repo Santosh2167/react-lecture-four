@@ -89,6 +89,26 @@ class Canvas extends Component {
             </div>
         )
     }
+    onCanvasMouseMove_dublicate = (event) => {
+        const x = event.nativeEvent.offsetX;
+        const y = event.nativeEvent.offsetY;
+        const {coords, height,width} = this.state;
+
+        if(x>0 && y >0 && x<width && y < height) {
+            if(coords){
+                this.context.beginPath();
+                this.context.moveTo(coords[0],coords[1]);
+                this.context.lineTo(x,y);
+                this.context.closePath();
+                this.context.stroke();
+                this.setState({coords: [x,y]})
+            }
+        }else {
+            this.setState({coords:null})
+        }
+    }
+
+
 }
 
 export default Canvas;
